@@ -1,0 +1,71 @@
+    
+begin
+​   
+dbms_ouotput.put_line('Hi');
+​  
+end;
+​ 
+/
+
+-----------------------------------------------
+
+[2:55 PM] Umamaheswari Aravindan
+declare
+x varchar2(20);
+eno number;
+begin
+x := 'Anu';
+select id into eno from employee where name = x;
+dbms_output.put_line(eno);
+end;
+/
+
+[3:03 PM] Umamaheswari Aravindan
+Begin
+for v_empno in (select id from employee)
+loop
+dbms_output.put_line(v_empno.id);
+end loop;
+end;
+/
+
+----------------------------------------------------
+[3:24 PM] Umamaheswari Aravindan
+declare
+cursor cur_Emp is
+select * from employee;
+Begin
+for v_empno in cur_emp loop
+dbms_output.put_line(v_empno.id);dbms_output.put_line(v_empno.name);dbms_output.put_line(v_empno.sal);
+end loop;
+end;
+/
+
+---------------------------------------------------------------------
+
+[3:43 PM] Umamaheswari Aravindan
+
+CREATE OR REPLACE PROCEDURE proc_sample
+IS
+BEGIN
+DBMS_OUTPUT.PUT_LINE('Hello World!');
+END;
+/
+
+[3:43 PM] Umamaheswari Aravindan
+exec proc_sample
+
+[3:44 PM] Umamaheswari Aravindan
+CREATE OR REPLACE PROCEDURE proc_sample_in(param1 IN VARCHAR2)
+IS
+BEGIN
+DBMS_OUTPUT.PUT_LINE('Hello World IN parameter ' || param1);
+END;
+/
+
+[3:45 PM] Umamaheswari Aravindan
+exec proc_sample_in('Hexaware');
+
+
+
+
