@@ -67,5 +67,26 @@ END;
 exec proc_sample_in('Hexaware');
 
 
+------------------------------------------------------------------------
+simple function
+
+CREATE OR REPLACE FUNCTION totalCustomers
+RETURN number IS
+total number(2);
+BEGIN
+SELECT count(deptno)into total
+FROM emp;
+RETURN total;
+END;
+/
+------------------------------------
+declare
+var_res number;
+begin
+var_res:= totalCustomers();
+dbms_output.put_line(var_res);
+end;
+/
+
 
 
